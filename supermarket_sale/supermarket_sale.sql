@@ -51,6 +51,9 @@ having count(*) >1
 /* Create revenue column = unit_price*quantity */
 alter table sales
 add  revenue as unit_price*quantity
+/* gross_margin_percentage column has similar values and Time don't need for analysis, so i will delete two columns */
+alter table sales
+drop column Time, gross_margin_percentage
 /* which payment more popular */
 select payment,
 		count(*) 
