@@ -122,7 +122,7 @@ mean_song <- new_song %>%
 
 ggplot(mean_song) + geom_line(aes(year, danceability, color = "danceability")) + geom_line(aes(year, energy, color = "energy")) + geom_line(aes(year, acousticness, color = "acousticness")) + geom_line(aes(year, valence, color = "valence")) + geom_line(aes(year, instrumentalness, color = "instrumentalness")) + labs(x = "Year", y =" ")
  
-ggplot(mean_song) + geom_line(aes(year, loudness, color = "loudness"))
+ggplot(mean_song) + geom_line(aes(year, loudness, color = "loudness")) 
 ggplot(mean_song) + geom_line(aes(year, tempo, color = "tempo"))
 ggplot(mean_song) + geom_line(aes(year, popularity, color = "popularity"))
 
