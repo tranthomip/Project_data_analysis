@@ -12,7 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Background
 ### About business
 Spotify transformed music listening forever when it launched in 2008. Discover, manage and
-share over 80 million tracks, including more than 4 million podcast titles, for free, or upgrade to Spotify Premium to access exclusive features for music including improved sound quality and an on-demand, offline, and ad-free music listening experience. Today, Spotify is the world’s most popular audio streaming subscription service with 433m users, including 188m subscribers, across 183 markets.
+share over 80 million tracks, including more than 4 million podcast titles, for free, or
+upgrade to Spotify Premium to access exclusive features for music including improved sound
+quality and an on-demand, offline, and ad-free music listening experience. Today, Spotify is
+the world’s most popular audio streaming subscription service with 433m users, including 188m
+subscribers, across 183 markets.
 
 ### Tasks
 Through spotify data set, i will find out how music changed over years, top ten artist, track on Spotify, correlation between variables and factors effect on track popularity.
