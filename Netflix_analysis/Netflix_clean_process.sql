@@ -79,4 +79,3 @@ drop column description
 /* delete the country column */
 alter table cleaned_netflix
 drop column country
-
