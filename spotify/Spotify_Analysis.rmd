@@ -150,10 +150,17 @@ primarily uses instruments has low energy and volumn.
 ```{r}
 mean_song <- new_song %>%
   group_by(year) %>%
-  summarise_at(vars(c(popularity, danceability, energy, loudness, acousticness, instrumentalness, valence, tempo )), list(name = mean)) %>%
-  rename(popularity = popularity_name, danceability = danceability_name, energy= energy_name, loudness = loudness_name, acousticness = acousticness_name, instrumentalness = instrumentalness_name, valence = valence_name, tempo = tempo_name)
+  summarise_at(vars(c(popularity, danceability, energy, loudness, acousticness,
+                      instrumentalness, valence, tempo )), list(name = mean)) %>%
+  rename(popularity = popularity_name, danceability = danceability_name, energy= energy_name,
+         loudness = loudness_name, acousticness = acousticness_name, instrumentalness =
+           instrumentalness_name, valence = valence_name, tempo = tempo_name)
 
-ggplot(mean_song) + geom_line(aes(year, danceability, color = "danceability")) + geom_line(aes(year, energy, color = "energy")) + geom_line(aes(year, acousticness, color = "acousticness")) + geom_line(aes(year, valence, color = "valence")) + geom_line(aes(year, instrumentalness, color = "instrumentalness")) + labs(x = "Year", y =" ")
+ggplot(mean_song) + geom_line(aes(year, danceability, color = "danceability")) +
+  geom_line(aes(year, energy, color = "energy")) + 
+  geom_line(aes(year, acousticness, color = "acousticness")) + 
+  geom_line(aes(year, valence, color = "valence")) + 
+  geom_line(aes(year, instrumentalness, color = "instrumentalness")) + labs(x = "Year", y =" ")
  
 ggplot(mean_song) + geom_line(aes(year, loudness, color = "loudness"))
 ggplot(mean_song) + geom_line(aes(year, tempo, color = "tempo"))
@@ -183,7 +190,10 @@ top_artist <- new_song %>%
   arrange(desc(n)) %>%
   head(10)
 head(top_artist, 10)
-ggplot(top_artist, aes(x= reorder(artist, -n), y = n)) + geom_bar(stat = 'identity', fill = 'darkblue')+ labs(title = 'TOP 10 ARTIST', x = 'Name of artist', y = 'Number of song') + theme(axis.text.x = element_text(angle = 30), plot.title =  element_text(hjust = 0.5))
+ggplot(top_artist, aes(x= reorder(artist, -n), y = n)) + 
+  geom_bar(stat = 'identity', fill = 'darkblue')+ 
+  labs(title = 'TOP 10 ARTIST', x = 'Name of artist', y = 'Number of song') + 
+  theme(axis.text.x = element_text(angle = 30), plot.title =  element_text(hjust = 0.5))
 ```
 The most popular artist is Rihanna.
 
@@ -195,7 +205,10 @@ top_track <- new_song %>%
   arrange(-popularity) %>%
   head(10)
 head(top_track, 10)
-ggplot(top_track, aes(x = reorder(song, -popularity), y = popularity, fill = song)) + geom_bar(stat = 'identity') + labs(title = 'TOP 10 TRACK', x = 'Name of Tracks', y = 'Score of popularity') + theme(axis.text.x = element_text(angle = 90), plot.title = element_text(hjust = 0.5))
+ggplot(top_track, aes(x = reorder(song, -popularity), y = popularity, fill = song)) +
+  geom_bar(stat = 'identity') + 
+  labs(title = 'TOP 10 TRACK', x = 'Name of Tracks', y = 'Score of popularity') +
+  theme(axis.text.x = element_text(angle = 90), plot.title = element_text(hjust = 0.5))
 ```
 
 Sweater Weather is the song with highest popularity score, follow by it is Another Love. These
@@ -207,7 +220,9 @@ In this section, we will use linear regression to fit mathematical formula on th
 confirm if any variables contribute to music popularity.
 
 ```{r}
-factor_effect <- lm(popularity ~ duration_ms + year + danceability + energy + key + loudness + speechiness + acousticness + instrumentalness + liveness + valence + tempo, data = new_song)
+factor_effect <- lm(popularity ~ duration_ms + year + danceability + energy + key + loudness +
+                      speechiness + acousticness + instrumentalness + liveness + valence +
+                      tempo, data = new_song)
 summary(factor_effect)
 ```
 
